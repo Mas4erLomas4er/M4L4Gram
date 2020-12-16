@@ -46,7 +46,7 @@
         public function update (User $user)
         {
             $data = request()->validate([
-                'username' => ['required', 'unique'],
+                'username' => ['required', 'unique:users'],
                 'name' => ['required'],
                 'bio' => ['max:255'],
                 'site' => ['max:50'],
@@ -55,7 +55,15 @@
 
             if (isset($data['image']))
             {
-                $imagePath = Uploader::upload(request('image'))['url'];
+                $imagePath = Uploader::upload(
+                    request('image'),
+                    [
+                        "width" => 500,
+                        "height" => 500,
+                        "gravity"=>"auto",
+                        "crop"=>"lfill",
+                        "quality"=>75
+                    ])['url'];
             } else
                 $imagePath = 'https://www.labom.com/files/images/mitarbeiter/kein-bild-vorhanden.png';
 
