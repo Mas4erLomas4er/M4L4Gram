@@ -46,23 +46,25 @@
             </div>
         </div>
     </form>
-    <script>
-		let imageFile = document.getElementById( 'image' );
-		imageFile.addEventListener( 'change', function ( event ) {
-			event.stopPropagation();
-			event.preventDefault();
-			let file = event.target.files[ 0 ];
-			let fileReader = new FileReader();
+    <script defer>
+        window.onload = function () {
+			document.getElementById( 'image' ).addEventListener( 'change', function ( event ) {
+				console.log( 5 );
+				event.stopPropagation();
+				event.preventDefault();
+				let file = event.target.files[ 0 ];
+				let fileReader = new FileReader();
 
-			fileReader.onload = function ( progressEvent ) {
-				let url = fileReader.result;
-				let image = document.getElementById( 'image-preview' );
-				image.src = url;
-				image.classList.remove( 'd-none' );
-			};
+				fileReader.onload = function ( progressEvent ) {
+					let url = fileReader.result;
+					let image = document.getElementById( 'image-preview' );
+					image.src = url;
+					image.classList.remove( 'd-none' );
+				};
 
 
-			fileReader.readAsDataURL( file ); // fileReader.result -> URL.
-		} );
+				fileReader.readAsDataURL( file ); // fileReader.result -> URL.
+			} );
+        }
     </script>
 @endsection

@@ -88,7 +88,7 @@
                     <div class="row">
                         <div class="col-3 pl-0">
                             <div class="square-image-block">
-                                <img src="/storage/{{ $user->profile->image }}" alt="" class="square-image mb-3 rounded-circle" id="image-preview">
+                                <img src="{{ $user->profile->image }}" alt="" class="square-image mb-3 rounded-circle" id="image-preview">
                             </div>
                         </div>
                         <div class="form-group col-9 pr-0">
@@ -122,22 +122,24 @@
         </div>
     </form>
     <script>
-		let imageFile = document.getElementById( 'image' );
-		imageFile.addEventListener( 'change', function ( event ) {
-			event.stopPropagation();
-			event.preventDefault();
-			let file = event.target.files[ 0 ];
-			let fileReader = new FileReader();
+		window.onload = function () {
+			let imageFile = document.getElementById( 'image' );
+			imageFile.addEventListener( 'change', function ( event ) {
+				event.stopPropagation();
+				event.preventDefault();
+				let file = event.target.files[ 0 ];
+				let fileReader = new FileReader();
 
-			fileReader.onload = function ( progressEvent ) {
-				let url = fileReader.result;
-				let image = document.getElementById( 'image-preview' );
-				image.src = url;
-				image.parentElement.classList.remove( 'd-none' );
-			};
+				fileReader.onload = function ( progressEvent ) {
+					let url = fileReader.result;
+					let image = document.getElementById( 'image-preview' );
+					image.src = url;
+					image.parentElement.classList.remove( 'd-none' );
+				};
 
 
-			fileReader.readAsDataURL( file ); // fileReader.result -> URL.
-		} );
+				fileReader.readAsDataURL( file );
+			} );
+		}
     </script>
 @endsection
