@@ -25,11 +25,11 @@
             </div>
         </div>
     @endforeach
-    @if ($current_page == $last_page)
-        <div class="jumbotron mb-5">
-            <h2>You have seen everything from last 3 days</h2>
-        </div>
-    @endif
+    {{--@if ($current_page == $last_page)--}}
+        {{--<div class="jumbotron mb-5">--}}
+            {{--<h2>You have seen everything from last 3 days</h2>--}}
+        {{--</div>--}}
+    {{--@endif--}}
     <div class="d-flex justify-content-center">
         {{ $posts->links() }}
     </div>
