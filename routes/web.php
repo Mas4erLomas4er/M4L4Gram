@@ -23,15 +23,15 @@
     //    Posts
     Route::get('/', [PostsController::class, 'index'])
         ->name('posts.index')
-        ->middleware('auth', 'verify');
+        ->middleware('auth', 'verified');
 
     Route::get('/p/create', [PostsController::class, 'create'])
         ->name('posts.create')
-        ->middleware('auth', 'verify');
+        ->middleware('auth', 'verified');
 
     Route::post('/p', [PostsController::class, 'store'])
         ->name('posts.store')
-        ->middleware('auth', 'verify');
+        ->middleware('auth', 'verified');
 
     Route::get('/p/{post}', [PostsController::class, 'show'])
         ->name('posts.show');
@@ -39,7 +39,7 @@
     //    Follow / Unfollow
     Route::post('/follow/{user}', [FollowsController::class, 'store'])
         ->name('follow')
-        ->middleware('auth', 'verify');
+        ->middleware('auth', 'verified');
 
     //    Email Verification
     Route::get('/email/verify',
