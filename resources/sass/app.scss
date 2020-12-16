@@ -1,0 +1,58 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/dist/css/bootstrap.min.css';
+
+//Imports
+@import "adaptive_size";
+
+html {
+    font-size: calc(13px + (15 - 13) * ((100vw - 300px) / (1350 - 300)));
+}
+
+//body {
+//    font-size: 0.9rem;
+//    line-height: 1.6;
+//    background-color: #fafafa;
+//}
+
+//h1, h2, h3, h4, h5, h6, button {
+//    font-weight: normal;
+//}
+
+.logo-font {
+    font-family: 'Fredoka One', sans-serif;
+}
+
+a {
+    color: $indigo;
+}
+
+.square-image-block {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+}
+
+.square-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+}
