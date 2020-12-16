@@ -24,7 +24,7 @@
             $dayToCheck = Carbon::now()->subDays(3);
             $posts = Post::whereIn('user_id', $followees)->whereDate("created_at", '>', $dayToCheck)->latest()->with('user', 'user.profile')->paginate(10);
 
-            return view('posts.index', compact('posts', 'current_page', 'last_page'));
+            return view('posts.index', compact('posts'));
         }
 
         public function create ()
