@@ -14,9 +14,9 @@
      * @property mixed username
      * @property mixed name
      * @property mixed email
-     * @property mixed passowrd
+     * @property mixed password
      */
-    class User extends Authenticatable
+    class User extends Authenticatable implements MustVerifyEmail
     {
         use HasFactory, Notifiable;
 

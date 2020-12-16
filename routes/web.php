@@ -2,6 +2,7 @@
 
     use App\Http\Controllers\
     {FollowsController, HomeController, PostsController, ProfilesController};
+    use Illuminate\Foundation\Auth\EmailVerificationRequest;
     use Illuminate\Support\Facades\
     {Auth, Route};
 
@@ -22,15 +23,15 @@
     //    Posts
     Route::get('/', [PostsController::class, 'index'])
         ->name('posts.index')
-        ->middleware('auth');
+        ->middleware('auth', 'verify');
 
     Route::get('/p/create', [PostsController::class, 'create'])
         ->name('posts.create')
-        ->middleware('auth');
+        ->middleware('auth', 'verify');
 
     Route::post('/p', [PostsController::class, 'store'])
         ->name('posts.store')
-        ->middleware('auth');
+        ->middleware('auth', 'verify');
 
     Route::get('/p/{post}', [PostsController::class, 'show'])
         ->name('posts.show');
@@ -38,12 +39,31 @@
     //    Follow / Unfollow
     Route::post('/follow/{user}', [FollowsController::class, 'store'])
         ->name('follow')
-        ->middleware('auth');
+        ->middleware('auth', 'verify');
 
-    //    Email
-    Route::get('/email', function () { return new \App\Mail\NewUser(); })
-        ->name('posts.index')
-        ->middleware('auth');
+    //    Email Verification
+    Route::get('/email/verify',
+        function () { return view('auth.verify'); })
+        ->middleware('auth')
+        ->name('verification.notice');
+
+    Route::get('/email/verify/{id}/{hash}',
+        function (EmailVerificationRequest $request)
+        {
+            $request->fulfill();
+            return redirect(\route('posts.index'));
+        })
+        ->middleware(['auth', 'signed'])
+        ->name('verification.verify');
+
+    Route::post('/email/verification-notification',
+        function (Request $request)
+        {
+            $request->user()->sendEmailVerificationNotification();
+            return back()->with('message', 'Verification link sent!');
+        })
+        ->middleware(['auth', 'throttle:6,1'])
+        ->name('verification.send');
 
     //    Profiles
     Route::get('/{user}', [ProfilesController::class, 'show'])

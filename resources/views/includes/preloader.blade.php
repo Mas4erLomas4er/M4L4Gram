@@ -46,6 +46,7 @@
     }
 
     .preloader.done .loader {
+        animation-play-state: paused;
         opacity: 0;
         visibility: hidden;
     }
