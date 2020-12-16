@@ -89,7 +89,7 @@
                 $profile->user_id = $user->id;
                 $profile->save();
 
-                Mail::to($user->email)->send(new NewUser($user));
+//                Mail::to($user->email)->send(new NewUser($user));
             });
         }
     }

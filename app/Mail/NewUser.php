@@ -32,6 +32,6 @@ class NewUser extends Mailable
     {
         return $this->markdown('emails.new-user', [
             'user' => $this->user,
-        ]);
+        ])->subject('Welcome to M4L4Gram!');
     }
 }

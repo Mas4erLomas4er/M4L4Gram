@@ -1,10 +1,11 @@
 <?php
 
     use App\Http\Controllers\
-    {FollowsController, HomeController, PostsController, ProfilesController};
+    {FollowsController, HomeController, PostsController, ProfilesController, VerificationController};
+    use App\Mail\NewUser;
     use Illuminate\Foundation\Auth\EmailVerificationRequest;
     use Illuminate\Support\Facades\
-    {Auth, Route};
+    {Auth, Mail, Route};
 
     /*
     |--------------------------------------------------------------------------
@@ -42,26 +43,15 @@
         ->middleware('auth', 'verified');
 
     //    Email Verification
-    Route::get('/email/verify',
-        function () { return view('auth.verify'); })
+    Route::get('/email/verify', [VerificationController::class, 'notice'])
         ->middleware('auth')
         ->name('verification.notice');
 
-    Route::get('/email/verify/{id}/{hash}',
-        function (EmailVerificationRequest $request)
-        {
-            $request->fulfill();
-            return redirect(\route('posts.index'));
-        })
+    Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])
         ->middleware(['auth', 'signed'])
         ->name('verification.verify');
 
-    Route::post('/email/verification-notification',
-        function (Request $request)
-        {
-            $request->user()->sendEmailVerificationNotification();
-            return back()->with('message', 'Verification link sent!');
-        })
+    Route::post('/email/verification-notification', [VerificationController::class, 'send'])
         ->middleware(['auth', 'throttle:6,1'])
         ->name('verification.send');
 
