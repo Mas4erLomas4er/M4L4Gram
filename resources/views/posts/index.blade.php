@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="mx-auto" style="width: 600px;">
+
+    </div>
+    <h1>Latest posts</h1>
     @foreach($posts as $post)
-        <div class="card mx-auto mb-5" style="width: 600px;">
+        <div class="card mb-5">
             <div class="card-header d-flex align-items-center bg-white">
                 <a href="{{ route('profiles.show', $post->user->id) }}" class="mr-3" style="width: 32px">
                     <div class="square-image-block">
@@ -21,6 +25,11 @@
             </div>
         </div>
     @endforeach
+    @if ($current_page == $last_page)
+        <div class="jumbotron mb-5">
+            <h2>You have seen everything from last 3 days</h2>
+        </div>
+    @endif
     <div class="d-flex justify-content-center">
         {{ $posts->links() }}
     </div>
