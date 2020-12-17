@@ -30,8 +30,8 @@ class NewUser extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.new-user', [
+        return $this->subject('Welcome to M4L4Gram!')->markdown('emails.new-user', [
             'user' => $this->user,
-        ])->subject('Welcome to M4L4Gram!');
+        ]);
     }
 }

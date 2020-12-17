@@ -2,12 +2,10 @@
 
     namespace App\Models;
 
-    use App\Mail\NewUser;
     use Illuminate\Contracts\Auth\MustVerifyEmail;
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Foundation\Auth\User as Authenticatable;
     use Illuminate\Notifications\Notifiable;
-    use Illuminate\Support\Facades\Mail;
 
     /**
      * @property mixed id
@@ -51,17 +49,17 @@
             'email_verified_at' => 'datetime',
         ];
 
-        public function profile()
+        public function profile ()
         {
             return $this->hasOne(Profile::class);
         }
 
-        public function posts()
+        public function posts ()
         {
-            return $this->hasMany(Post::class)->orderBy('created_at','DESC');
+            return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
         }
 
-        public function followers()
+        public function followers ()
         {
             return $this->belongsToMany(
                 self::class,
@@ -70,7 +68,8 @@
                 'follower_id'
             );
         }
-        public function followees()
+
+        public function followees ()
         {
             return $this->belongsToMany(
                 self::class,
@@ -80,7 +79,7 @@
             );
         }
 
-        protected static function boot()
+        protected static function boot ()
         {
             parent::boot();
             static::created(function ($user)
