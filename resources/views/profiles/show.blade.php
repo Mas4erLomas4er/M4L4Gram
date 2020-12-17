@@ -31,7 +31,7 @@
             </div>
             <div class="mt-4 font-weight-bold">{{$user->name}}</div>
             <div>{{$user->profile->bio ?? ""}}</div>
-            <div><a href="//{{$user->profile->site ?? ""}}" class="text-decoration-none font-weight-bold">{{$user->profile->site ?? ""}}</a></div>
+            <div><a href="{{$user->profile->site ?? ""}}" class="text-decoration-none font-weight-bold">{{$user->profile->site ?? ""}}</a></div>
         </div>
     </div>
     <div class="row">

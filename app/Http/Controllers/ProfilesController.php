@@ -12,6 +12,8 @@
     use App\Models\User;
     use Cloudinary\Uploader;
     use Illuminate\Support\Facades\Cache;
+    use Illuminate\Support\Facades\Validator;
+    use Illuminate\Validation\Rule;
     use Intervention\Image\Facades\Image;
 
     class ProfilesController extends Controller
@@ -45,13 +47,7 @@
 
         public function update (User $user)
         {
-            $data = request()->validate([
-                'username' => ['required', 'unique:users', 'string', 'max:25'],
-                'name' => ['required', 'string', 'max:50'],
-                'bio' => ['string', 'max:255'],
-                'site' => ['string', 'max:50'],
-                'image' => ['image'],
-            ]);
+            $data = $this->validation(request()->all(), $user);
 
             if (isset($data['image']))
             {
@@ -60,9 +56,9 @@
                     [
                         "width" => 500,
                         "height" => 500,
-                        "gravity"=>"auto",
-                        "crop"=>"lfill",
-                        "quality"=>75
+                        "gravity" => "auto",
+                        "crop" => "lfill",
+                        "quality" => 75,
                     ])['url'];
             } else
                 $imagePath = 'https://www.labom.com/files/images/mitarbeiter/kein-bild-vorhanden.png';
@@ -77,5 +73,25 @@
             $user->push();
 
             return redirect(route('profiles.show', $user->id));
+        }
+
+        public function validation ($data, User $user)
+        {
+            $rules = [
+                'username' => [
+                    'required',
+                    'regex:/^[a-z0-9.\-_]{4,20}$/',
+                    Rule::unique('users')->ignore($user),
+                ],
+                'name' => ['required', 'string', 'max:50'],
+                'bio' => ['string', 'nullable', 'max:255'],
+                'site' => ['active_url', 'nullable', 'max:50'],
+                'image' => ['image'],
+            ];
+            $messages = [
+                'username.regex' => 'The username must contain only lowercase latin letters, digits, dots, dashes and underscores.',
+                'active_url' => 'The :attribute must be a real URL',
+            ];
+            return Validator::make($data, $rules, $messages)->validate();
         }
     }

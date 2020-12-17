@@ -42,7 +42,6 @@
             $image = Uploader::upload(request('image'),
                 [
                     "width" => 1000,
-                    "gravity"=>"auto",
                     "crop"=>"limit",
                     "quality"=>75
                 ]);

@@ -10,21 +10,29 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <div class="form-group row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
+                                <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
+                                <div class="input-group col-md-6">
+                                    <div class="input-group-prepend">
+                                        <label for="username" class="input-group-text">@</label>
+                                    </div>
+                                    <input id="username"
+                                           class="form-control @error('username') is-invalid @enderror"
+                                           name="username"
+                                           value="{{ old('username')}}"
+                                           autocomplete="username">
+
+                                    @error('username')
+                                    <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </div>
                             </div>
                             <div class="form-group row mb-3">
-                                <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
                                 <div class="col-md-6">
-                                    <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
-                                    @error('username')
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                    @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
