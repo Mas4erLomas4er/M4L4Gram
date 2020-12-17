@@ -25,9 +25,9 @@
                 @endguest
             </div>
             <div class="d-flex">
-                <div class="mr-5"><b>{{ $stats['posts_count'] }}</b> post</div>
-                <div class="mr-5"><b>{{ $stats['followers_count'] }}</b> followers</div>
-                <div><b>{{ $stats['followees_count'] }}</b> following</div>
+                <div class="mr-5"><b>{{ $user->posts->count() }}</b> post</div>
+                <div class="mr-5"><b>{{ $user->followers->count() }}</b> followers</div>
+                <div><b>{{ $user->followees->count() }}</b> following</div>
             </div>
             <div class="mt-4 font-weight-bold">{{$user->name}}</div>
             <div>{{$user->profile->bio ?? ""}}</div>

@@ -21,21 +21,21 @@
         public function show (User $user)
         {
             $follows = (auth()->user()) ? auth()->user()->followees->contains($user->id) : false;
-            $stats = [
-                'posts_count' => Cache::remember(
-                    'count.posts.' . $user->id,
-                    now()->addSeconds(60),
-                    function () use ($user) { return $user->posts->count(); }),
-                'followers_count' => Cache::remember(
-                    'count.followers.' . $user->id,
-                    now()->addSeconds(60),
-                    function () use ($user) { return $user->followers->count(); }),
-                'followees_count' => Cache::remember(
-                    'count.followees.' . $user->id,
-                    now()->addSeconds(60),
-                    function () use ($user) { return $user->followees->count(); }),
-            ];
-            return view('profiles.show', compact('user', 'follows', 'stats'));
+//            $stats = [
+//                'posts_count' => Cache::remember(
+//                    'count.posts.' . $user->id,
+//                    now()->addSeconds(60),
+//                    function () use ($user) { return $user->posts->count(); }),
+//                'followers_count' => Cache::remember(
+//                    'count.followers.' . $user->id,
+//                    now()->addSeconds(60),
+//                    function () use ($user) { return $user->followers->count(); }),
+//                'followees_count' => Cache::remember(
+//                    'count.followees.' . $user->id,
+//                    now()->addSeconds(60),
+//                    function () use ($user) { return $user->followees->count(); }),
+//            ];
+            return view('profiles.show', compact('user', 'follows'));
         }
 
         public function edit (User $user)
