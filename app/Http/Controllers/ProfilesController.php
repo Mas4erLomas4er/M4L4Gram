@@ -46,10 +46,10 @@
         public function update (User $user)
         {
             $data = request()->validate([
-                'username' => ['required', 'unique:users'],
-                'name' => ['required'],
-                'bio' => ['max:255'],
-                'site' => ['max:50'],
+                'username' => ['required', 'unique:users', 'string', 'max:25'],
+                'name' => ['required', 'string', 'max:50'],
+                'bio' => ['string', 'max:255'],
+                'site' => ['string', 'max:50'],
                 'image' => ['image'],
             ]);
 
