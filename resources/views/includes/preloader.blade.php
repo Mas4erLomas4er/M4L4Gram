@@ -28,8 +28,8 @@
     }
 
     .preloader .loader {
-        width: 150px;
-        height: 150px;
+        width: 50px;
+        height: 50px;
         border: 3px solid #fff;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
@@ -43,6 +43,13 @@
         transition: 0.5s;
         opacity: 1;
         visibility: visible;
+    }
+
+    @media (min-width: 576px) {
+        .preloader .loader {
+            width: 150px;
+            height: 150px;
+        }
     }
 
     .preloader.done .loader {
