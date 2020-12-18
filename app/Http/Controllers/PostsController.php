@@ -13,6 +13,7 @@
     use Carbon\Carbon;
     use Cloudinary\Uploader;
     use Intervention\Image\Facades\Image;
+    use function MongoDB\BSON\toJSON;
 
     class PostsController extends Controller
     {
@@ -24,7 +25,9 @@
             $dayToCheck = Carbon::now()->subDays(3);
             $posts = Post::whereIn('user_id', $followees)->whereDate("created_at", '>', $dayToCheck)->latest()->with('user', 'user.profile')->paginate(10);
 
-            return view('posts.index', compact('posts'));
+            $pagination_info = json_decode($posts->toJson());
+
+            return view('posts.index', compact('posts', 'pagination_info'));
         }
 
         public function create ()
