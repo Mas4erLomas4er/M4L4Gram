@@ -21,7 +21,8 @@
                                class="form-control @error('username') is-invalid @enderror"
                                name="username"
                                value="{{ old('username') ?? $user->username}}"
-                               autocomplete="username">
+                               autocomplete="username"
+                               autofocus>
                     </div>
                     @error('username')
                     <span class="invalid-feedback d-block" role="alert">

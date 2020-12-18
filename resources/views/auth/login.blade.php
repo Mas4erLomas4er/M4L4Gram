@@ -19,7 +19,8 @@
                                            class="form-control @error('username') is-invalid @enderror"
                                            name="username"
                                            value="{{ old('username')}}"
-                                           autocomplete="username">
+                                           autocomplete="username"
+                                           autofocus>
                                 </div>
                                 @error('username')
                                 <span class="invalid-feedback d-block" role="alert">
