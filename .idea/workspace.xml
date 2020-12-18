@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:heroku" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:heroku" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:heroku/master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="82517440-9f4f-42e3-9404-61ccbff938d6" name="Default Changelist" comment="test">
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/db252566-51a7-42e6-a1cb-dec8f728e905.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/db252566-51a7-42e6-a1cb-dec8f728e905.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/profiles/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profiles/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,8 +264,30 @@
       <workItem from="1608308406393" duration="415000" />
       <workItem from="1608308890534" duration="4574000" />
       <workItem from="1608313619522" duration="1861000" />
-      <workItem from="1608315547817" duration="1735000" />
+      <workItem from="1608315547817" duration="2132000" />
     </task>
+    <task id="LOCAL-00001" summary="test">
+      <created>1608317392041</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608317392041</updated>
+    </task>
+    <task id="LOCAL-00002" summary="test">
+      <created>1608317420888</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608317420888</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test">
+      <created>1608317477961</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608317477961</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,10 +354,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="504" y="102" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog/0.0.1366.728@0.0.1366.728" timestamp="1608315186056" />
-    <state x="306" y="40" key="CommitChangelistDialog2" timestamp="1608317327079">
+    <state x="306" y="40" key="CommitChangelistDialog2" timestamp="1608317742434">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="306" y="40" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608317327079" />
+    <state x="306" y="40" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608317742434" />
     <state x="533" y="249" key="DBNavigator.ConnectionAuthenticationDialog" timestamp="1608313829585">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -351,6 +390,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="209" y="16" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1608316454148" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1608317551323">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1608317551323" />
     <state x="747" y="297" key="com.intellij.ide.ui.customization.CustomizableActionsPanel$EditIconDialog" timestamp="1608315824729">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
