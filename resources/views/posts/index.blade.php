@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="mx-auto" style="max-width: 600px;width: 100%;">
-        <h1>Latest posts</h1>
+        <h1>Latest posts:</h1>
         @foreach($posts as $post)
             <div class="card mb-5">
                 <div class="card-header d-flex align-items-center bg-white">
